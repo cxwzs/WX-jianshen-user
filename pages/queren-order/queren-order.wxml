@@ -1,0 +1,72 @@
+<!--pages/queren-order/queren-order.wxml-->
+<!-- 生成海报 -->
+<painter class="painterImg" palette="{{data}}" bind:imgOK="onImgOK" bind:imgErr="onImgErr" />
+
+<view class="container">
+  <view class="box">
+    <!-- 用户信息 -->
+    <view class="user">
+      <view class="user-center">
+        <view class="user-bt">用户信息</view>
+        <view class="user-inp">
+          <text>姓名</text>
+          <input type="text" placeholder="请输入您的姓名" placeholder-class="inps" bindinput="getName"></input>
+        </view>
+        <view class="user-inp">
+          <text>手机号</text>
+          <input type="number" placeholder="请输入您的手机号" placeholder-class="inps" bindinput="getPhone"></input>
+        </view>
+        <view class="user-inp">
+          <text>微信号</text>
+          <input type="text" placeholder="请输入您的微信号" placeholder-class="inps" bindinput="getWechat"></input>
+        </view>
+      </view>
+    </view>
+    <!-- 项目信息 -->
+    <view class="project">
+      <view class="project-center">
+        <view class="project-bt">项目信息</view>
+        <view class="project-nr">
+          <image src="{{details.image}}"></image>
+          <view class="project-text">
+            <view class="project-name">{{details.name}}</view>
+            <view class="project-time">{{class_hour_name}}</view>
+            <view class="project-price">￥{{price}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 底部按钮 -->
+  <view class="btn">
+    <view class="btn-share" catchtap="showXCXcode">
+      <view>分享购</view>
+      <text>(随机立减10元起)</text>
+    </view>
+    <view class="btn-pay" catchtap="nowPay">立即支付</view>
+  </view>
+  <!-- 分享购 弹窗 -->
+  <view class="model" wx:if="{{shareIF}}">
+    <view class="model-hide" catchtap="hideModel"></view>
+    <view class="model-img" wx:if="{{shareImageIF}}">
+      <image src="{{shareImage}}" catchlongtap="downImg"></image>
+      <text>长按图片保存</text>
+    </view>
+    <view class="model-nr">
+      <view class="model-nr-center">
+        <view class="model-nr-center-content">
+          <view class="model-nr-center-btn">
+            <image src="/img/wechat.png"></image>
+            <text>微信好友</text>
+            <button open-type="share" plain></button>
+          </view>
+          <view class="model-nr-center-btn" catchtap="showShareImg">
+            <image src="/img/pyq.png"></image>
+            <text>朋友圈</text>
+          </view>
+        </view>
+      </view>
+      <view class="model-nr-btn" catchtap="hideModel">取消</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,159 @@
+/* pages/jingxuanxiangmu/jingxuanxiangmu.wxss */
+.box{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* 排序方式 */
+.nav{
+  width: 100%;
+  height: 88rpx;
+  display: grid;
+  grid-template-columns: repeat(3, 33.33%);
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+.nav-nr{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-nr>text{
+  font-size: 30rpx;
+  color: #656565;
+}
+.nav-nr-active>text{
+  font-size: 30rpx;
+  color: #EC2525;
+}
+.nav-nr>image{
+  width: 20rpx;
+  height: 28rpx;
+  margin-left: 15rpx;
+}
+.nav-nr-active>image{
+  width: 20rpx;
+  height: 28rpx;
+  margin-left: 15rpx;
+}
+/* 列表 */
+.list{
+  width: 100%;
+  margin-top: 108rpx;
+}
+.list-item{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 38rpx 30rpx;
+  margin-bottom: 20rpx;
+  background-color: #fff;
+}
+.list-item-center{
+  width: 100%;
+}
+/* 项目 */
+.project{
+  width: 100%;
+  height: 150rpx;
+  display: flex;
+  align-items: center;
+}
+.project>image{
+  width: 267rpx;
+  height: 150rpx;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+}
+.project-nr{
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+}
+.project-nr-bt{
+  width: 100%;
+  margin-top: 5rpx;
+  font-size: 30rpx;
+  font-weight:bold;
+  color:rgba(51,51,51,1);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+.project-star{
+  display: flex;
+  align-items: center;
+  margin-top: 10rpx;
+}
+.project-star>image{
+  width: 18rpx;
+  height: 17rpx;
+  margin-right: 10rpx;
+}
+.project-price{
+  position: absolute;
+  bottom: 5rpx;
+  font-size: 36rpx;
+  font-weight:bold;
+  color:rgba(236,37,37,1);
+}
+/* 隔断 */
+.geduan{
+  width: 100%;
+  height: 2rpx;
+  background-color: #f6f6f6;
+  border-radius: 1rpx;
+  margin: 40rpx 0;
+}
+/* 教练 */
+.teacher{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 88rpx;
+}
+.teacher>image{
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.teacher-nr{
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+}
+.teacher-name{
+  font-size: 30rpx;
+  font-weight:bold;
+  color:rgba(51,51,51,1);
+  margin-top: 5rpx;
+}
+.teacher-detail{
+  position: absolute;
+  bottom: 5rpx;
+  font-size: 26rpx;
+  font-weight:400;
+  color:rgba(153,153,153,1);
+}
+.teacher-bq{
+  position: absolute;
+  top: 5rpx;
+  right: 0;
+  font-size: 28rpx;
+  font-weight:400;
+  color:rgba(64, 67, 85, 1);
+}

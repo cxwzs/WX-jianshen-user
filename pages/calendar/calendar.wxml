@@ -1,0 +1,3 @@
+<!--pages/calendar/calendar.wxml-->
+<van-cell title="选择单个日期" value="{{ date }}" />
+<van-calendar show="{{ show }}" bind:confirm="onConfirm" />

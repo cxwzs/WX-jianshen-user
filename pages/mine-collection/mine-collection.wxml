@@ -1,0 +1,25 @@
+<!--pages/mine-collection/mine-collection.wxml-->
+<view class="container">
+  <view class="box">
+    <!-- 收藏列表 -->
+    <view class="list">
+      <view class="list-item" wx:for="{{list}}" wx:key="{{index}}" catchtap="toProjectDetail" data-id="{{item.id}}">
+        <view class="list-content">
+          <image src="{{item.image}}"></image>
+          <view class="list-text">
+            <view class="list-name">{{item.name}}</view>
+            <view class="list-star">
+              <image src="{{item.evaluate>0?(item.evaluate==0.5?'/img/star-4.png':'/img/star-3.png'):'/img/star-5.png'}}"></image>
+              <image src="{{item.evaluate>1?(item.evaluate==1.5?'/img/star-4.png':'/img/star-3.png'):'/img/star-5.png'}}"></image>
+              <image src="{{item.evaluate>2?(item.evaluate==2.5?'/img/star-4.png':'/img/star-3.png'):'/img/star-5.png'}}"></image>
+              <image src="{{item.evaluate>3?(item.evaluate==3.5?'/img/star-4.png':'/img/star-3.png'):'/img/star-5.png'}}"></image>
+              <image src="{{item.evaluate>4?(item.evaluate==4.5?'/img/star-4.png':'/img/star-3.png'):'/img/star-5.png'}}"></image>
+              <text>{{item.evaluate}}</text>
+            </view>
+            <view class="list-price">￥{{item.price}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

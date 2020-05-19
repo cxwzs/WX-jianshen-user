@@ -1,0 +1,30 @@
+/* pages/suggest/suggest.wxss */
+.textarea{
+  box-sizing: border-box;
+  margin: 30rpx;
+  height: 350rpx;
+  width: 690rpx;
+  font-size: 28rpx;
+  background: white;
+  padding: 30rpx;
+}
+.text{
+  box-sizing: border-box;
+  margin: 30rpx;
+  height: 100rpx;
+  width: 690rpx;
+  background: white;
+  padding: 20rpx;
+  font-size: 28rpx;
+}
+.btn{
+  margin: 0 auto;
+  margin-top: 80rpx;
+  width: 690rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  color: white;
+  border-radius: 50rpx;
+  background:linear-gradient(0deg,rgba(251,59,57,1),rgba(255,161,148,1));
+}

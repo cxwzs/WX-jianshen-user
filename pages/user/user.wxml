@@ -1,0 +1,27 @@
+<!--pages/user/user.wxml-->
+<view class="container">
+  <view class="box">
+    <!-- 头像 -->
+    <view class="tx">
+      <view class="tx-img" catchtap="scImgTwo">
+        <image src="{{avatarUrl}}" class="tx-img-nr"></image>
+        <image src="/img/camera.png" class="tx-camera"></image>
+      </view>
+    </view>
+    <!-- 昵称 -->
+    <view class="name">
+      <text>昵称</text>
+      <input placeholder="请输入您的昵称" value="{{nickname}}" placeholder-class="inps" bindinput="getName"></input>
+    </view>
+    <!-- 绑定手机号 -->
+    <view class="bind" catchtap="toBind">
+      <text>绑定手机号</text>
+      <view class="bind-nr">
+        <text wx:if="{{phone!=null}}">{{phone}}</text>
+        <image src="/img/more.png"></image>
+      </view>
+    </view>
+  </view>
+  <!-- 保存 按钮 -->
+  <view class="btn" catchtap="baocun">保存</view>
+</view>

@@ -1,0 +1,123 @@
+<!--pages/project-detail/project-detail.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class="container">
+  <view class="box">
+    <!-- 广告图 -->
+    <view class="top">
+      <video object-fit="contain" enable-auto-rotation="true" show-screen-lock-button="true" src="{{details.video}}"></video>
+    </view>
+    <!-- 项目信息 -->
+    <view class="project">
+      <view class="project-nr">
+        <view class="project-bt">{{details.name}}</view>
+        <view class="project-bq">
+          <text>{{details.class_name}}</text>
+        </view>
+        <view class="project-btn">
+          <!-- 分享 -->
+          <view class="btn-share">
+            <image src="/img/share.png"></image>
+            <button open-type="share"></button>
+          </view>
+          <!-- 收藏 -->
+          <view class="btn-colltion">
+            <image src="/img/collection.png" wx:if="{{details.is_collection!=0}}" catchtap="collectionIF"></image>
+            <image src="/img/no-collection.png" wx:else  catchtap="collectionIF"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 课时信息 -->
+    <view class="course" wx:if="{{details.class_hour.length!=0}}">
+      <view class="course-nr">
+        <view class="biaoti">课时信息</view>
+        <view class="course-list">
+          <view class="course-list-item" wx:for="{{details.class_hour}}" wx:key="{{index}}">
+            <view class="course-list-item-name">{{item.class_hour_name}}</view>
+            <view class="course-list-item-price">
+              <view>￥{{item.price}}</view>
+              <!-- <text>￥99</text> -->
+            </view>
+            <view class="course-list-item-btn">
+              <text catchtap="buy" data-id="{{item.id}}" data-price="{{item.price}}" data-class_hour_name="{{item.class_hour_name}}">购买</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 个人简介 -->
+    <view class="teacher">
+      <view class="teacher-nr">
+        <view class="biaoti">个人简介</view>
+        <view class="teacher-center">
+          <image src="{{details.head_portrait}}"></image>
+          <view class="teacher-center-nr">
+            <!-- 姓名 -->
+            <view class="teacher-center-nr-text">
+              <view class="teacher-center-nr-name">
+                <text>{{details.coach_name}}</text>
+                <view wx:if="{{details.label_name!=''}}">{{details.label_name}}</view>
+              </view>
+              <view class="teacher-center-nr-js" wx:for="{{details.prize}}">{{item.title}}</view>
+              <view class="teacher-center-nr-time">从业{{details.year_num}}年</view>
+            </view>
+            <!-- 奖状 -->
+            <view class="teacher-center-nr-jz">
+              <image src="{{item.img}}" wx:for="{{details.prize}}" wx:key="{{index}}" catchtap="showModel" data-index="{{index}}"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 项目评价 -->
+    <view class="evaluate" wx:if="{{details.comment.length!=0}}">
+      <!-- 标题 -->
+      <view class="title">
+        <text>项目评价</text>
+        <view class="title-more" catchtap="toJXmore">
+          <text>更多</text>
+          <image src="/img/more.png"></image>
+        </view>
+      </view>
+      <!-- 评价列表 -->
+      <view class="evaluate-list">
+        <view class="evaluate-list-item" wx:for="{{details.comment}}" wx:key="{{index}}">
+          <view class="evaluate-list-user">
+            <image src="{{item.avatarUrl}}"></image>
+            <view class="user-name">{{item.nickname}}</view>
+            <view class="evaluate-star">
+              <image src="{{item.level>0?(item.level==0.5?'/img/star-4.png':'/img/star-3.png'):'/img/star-5.png'}}"></image>
+              <image src="{{item.level>1?(item.level==1.5?'/img/star-4.png':'/img/star-3.png'):'/img/star-5.png'}}"></image>
+              <image src="{{item.level>2?(item.level==2.5?'/img/star-4.png':'/img/star-3.png'):'/img/star-5.png'}}"></image>
+              <image src="{{item.level>3?(item.level==3.5?'/img/star-4.png':'/img/star-3.png'):'/img/star-5.png'}}"></image>
+              <image src="{{item.level>4?(item.level==4.5?'/img/star-4.png':'/img/star-3.png'):'/img/star-5.png'}}"></image>
+            </view>
+          </view>
+          <view class="evaluate-list-content">
+            {{item.content}}
+          </view>
+          <view class="evaluate-list-img">
+            <view class="evaluate-list-img-nr" wx:for="{{item.pictures}}" wx:key="{{index}}">
+              <image src="{{item}}"></image>
+            </view>
+          </view>
+          <view class="evaluate-list-time">{{item.create_time}}</view>
+        </view>
+      </view>
+    </view>
+    <!-- 项目介绍 -->
+    <view class="introduce">
+      <view class="biaoti">项目介绍</view>
+      <view class="introduce-nr">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+      </view>
+    </view>
+  </view>
+  <!-- 奖状弹窗 -->
+  <view class="model" wx:if="{{modelIF}}" catchtap="hideModel">
+    <view class="model-nr">
+      <image src="{{details.prize[prizeIndex].img}}"></image>
+      <view>奖项：{{details.prize[prizeIndex].title}}</view>
+    </view>
+  </view>
+</view>

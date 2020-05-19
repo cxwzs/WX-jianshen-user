@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-calendar": "/miniprogram_npm/@vant/weapp/calendar/index"
+  },
+  "navigationBarTitleText": "选择日期"
+}

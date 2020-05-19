@@ -1,0 +1,124 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="box">
+    <!-- top -->
+    <view class="top">
+      <view class="top-nr">
+        <!-- input -->
+        <view class="top-inp">
+          <image src="/img/search.png" catchtap="searchIcon"></image>
+          <input type="text" placeholder="搜索" placeholder-class="inps" bindinput="getSearch" bindconfirm="search"></input>
+        </view>
+        <!-- banner -->
+        <view class="top-banner">
+          <swiper bindanimationfinish="swiperChange" autoplay="true" interval="3000" duration="500" circular="true">
+            <block wx:for="{{banners}}" wx:key="{{index}}">
+              <swiper-item class="swiper-item">
+                <image src="{{item.abs_url}}" catchtap="xzBanner" data-target_rule="{{item.target_rule}}" data-param="{{item.param}}"></image>
+              </swiper-item>
+            </block>
+          </swiper>
+          <!-- 指示点 -->
+          <view class="banner-dot">
+            <view wx:for="{{banners}}" wx:key="{{index}}" class="banner-dot-item {{swiperIndex==index?'banner-dot-item-active':''}}"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 菜单导航 icon图标 -->
+    <view class="icon-nav">
+      <swiper bindanimationfinish="iconChange" duration="500">
+        <block wx:for="{{outAll}}" wx:key="{{index}}">
+          <swiper-item class="swiper-icon">
+            <view class="icon-nav-nr">
+              <view class="icon-nav-nr-icon">
+                <view wx:for="{{item}}" wx:key="{{index}}" catchtap="xzClassNav" data-status="{{3}}" data-id="{{item.id}}" data-title="{{item.name}}">
+                  <image src="{{item.icon}}"></image>
+                  <text>{{item.name}}</text>
+                </view>
+              </view>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+      <!-- 指示点 -->
+      <view class="icon-dots">
+        <view wx:for="{{outAll}}" wx:key="{{index}}" class="icon-dots-item {{iconIndex==index?'icon-dots-item-active':''}}"></view>
+      </view>
+    </view>
+    <!-- 精选项目 -->
+    <view class="jxxm" wx:if="{{selected.length!=0}}">
+      <!-- 标题 -->
+      <view class="title">
+        <text>精选项目</text>
+        <view class="title-more" catchtap="toProjectMore" data-status="{{1}}">
+          <text>更多</text>
+          <image src="/img/more.png"></image>
+        </view>
+      </view>
+      <!-- 精选项目 内容 -->
+      <view class="jxxm-center">
+        <scroll-view scroll-x="true">
+          <view class="jxxm-center-nr">
+            <view class="jxxm-center-item" wx:for="{{selected}}" wx:key="{{index}}" catchtap="toProjectDetail" data-id="{{item.id}}">
+              <image src="{{item.image}}"></image>
+              <view class="jxxm-center-item-text">
+                <view>{{item.name}}</view>
+                <text>{{item.class_name}}</text>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+    <!-- 最新项目 -->
+    <view class="zxxm" wx:if="{{news.length!=0}}">
+      <!-- 标题 -->
+      <view class="title">
+        <text>最新项目</text>
+        <view class="title-more" catchtap="toProjectMore" data-status="{{2}}">
+          <text>更多</text>
+          <image src="/img/more.png"></image>
+        </view>
+      </view>
+      <view class="zxxm-list">
+        <view class="zxxm-list-item" wx:for="{{news}}" wx:key="{{index}}" catchtap="toProjectDetail" data-id="{{item.id}}">
+          <view class="zxxm-list-item-bg"></view>
+          <image src="{{item.image}}" class="zxxm-bg"></image>
+          <image src="/img/new.png" class="zxxm-bq"></image>
+          <view class="zxxm-list-item-text">{{item.name}}</view>
+        </view>
+      </view>
+    </view>
+    <!-- 火热类别 -->
+    <view class="hrlb" wx:if="{{fire_class.length!=0}}">
+      <!-- 标题 -->
+      <view class="title">
+        <text>火热类别</text>
+      </view>
+      <!-- 火热类别导航 -->
+      <view class="hrlb-nav">
+        <scroll-view scroll-x="true">
+          <view class="hrlb-nav-list">
+            <view class="hrlb-nav-list-item" wx:for="{{fire_class}}" wx:key="{{index}}">
+              <view class="hrlb-nav-list-item-nr" catchtap="xzHotNsv" data-id="{{item.id}}">
+                <text class="{{class_id==item.id?'hrlb-nav-active':''}}">{{item.name}}</text>
+                <view class="{{class_id==item.id?'hrlb-nav-active':''}}"></view>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+      <!-- 火热类别列表 -->
+      <view class="hrlb-list">
+        <view class="hrlb-list-item" wx:for="{{class_course}}" wx:key="{{index}}" catchtap="toProjectDetail" data-id="{{item.id}}">
+          <image src="{{item.image}}"></image>
+          <view class="hrlb-list-item-text">
+            <view>{{item.name}}</view>
+            <text>￥{{item.price}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

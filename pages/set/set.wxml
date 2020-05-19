@@ -1,0 +1,22 @@
+<!--pages/set/set.wxml-->
+<view class="container">
+  <view class="box">
+    <view class="menu" catchtap="toHelp">
+      <text>帮助文档</text>
+      <image src="/img/more.png"></image>
+    </view>
+    <view class="menu" catchtap="toSuggest">
+      <text>意见反馈</text>
+      <image src="/img/more.png"></image>
+    </view>
+    <view class="menu" catchtap="toAboutUs">
+      <text>关于我们</text>
+      <image src="/img/more.png"></image>
+    </view>
+    <view class="menu">
+      <text>联系客服</text>
+      <image src="/img/more.png"></image>
+      <button open-type="contact" plain></button>
+    </view>
+  </view>
+</view>

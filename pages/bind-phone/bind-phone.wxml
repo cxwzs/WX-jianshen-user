@@ -1,0 +1,21 @@
+<!--pages/bind-phone/bind-phone.wxml-->
+<view class="container">
+  <view class="box">
+    <!-- 手机号 -->
+    <view class="phone">
+      <text>手机号</text>
+      <input placeholder="请输入您的手机号" placeholder-class="inps" bindinput="getPhone"></input>
+    </view>
+    <!-- 验证码 -->
+    <view class="yzm">
+      <view class="yzm-left">
+        <text>验证码</text>
+        <input placeholder="请填写验证码" placeholder-class="inps" bindinput="getCode"></input>
+      </view>
+      <view class="yzm-right" catchtap="getVerify" wx:if="{{!timeIF}}">获取验证码</view>
+      <view class="yzm-right" wx:if="{{timeIF}}">{{timeNum}}秒</view>
+    </view>
+    <!-- 按钮 -->
+    <view class="btn" catchtap="queding">确定</view>
+  </view>
+</view>

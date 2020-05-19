@@ -1,0 +1,12 @@
+<!--pages/help-detail/help-detail.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class="container">
+  <view class="box">
+    <view class="message">
+      <text>{{title}}？</text>
+      <view>
+        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+      </view>
+    </view>
+  </view>
+</view>

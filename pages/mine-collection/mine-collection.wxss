@@ -1,0 +1,67 @@
+/* pages/mine-collection/mine-collection.wxss */
+.box{
+  width: 100%;
+}
+/* 收藏列表 */
+.list{
+  width: 100%;
+  background-color: #fff;
+}
+.list-item{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30rpx;
+  border-bottom: 2rpx solid #f6f6f6;
+}
+.list-content{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 150rpx;
+}
+.list-content>image{
+  width: 267rpx;
+  height: 150rpx;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+}
+.list-text{
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+.list-name{
+  width: 100%;
+  font-size: 30rpx;
+  color:rgba(51,51,51,1);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  margin-top: 5rpx;
+}
+.list-star{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 10rpx;
+}
+.list-star>image{
+  width: 18rpx;
+  height: 17rpx;
+  margin-right: 10rpx;
+}
+.list-star>text{
+  font-size: 22rpx;
+  font-weight:400;
+  color:rgba(153,153,153,1);
+}
+.list-price{
+  position: absolute;
+  bottom: 5rpx;
+  font-size: 36rpx;
+  color:rgba(236,37,37,1);
+}

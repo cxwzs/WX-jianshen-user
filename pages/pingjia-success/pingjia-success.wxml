@@ -1,0 +1,22 @@
+<!--pages/pingjia-success/pingjia-success.wxml-->
+<view class="container">
+  <view class="box">
+    <image src="/img/pingjia-success.png"></image>
+    <text>评价成功</text>
+    <view class="btn" catchtap="goOn">继续逛逛</view>
+  </view>
+  <!-- 分享弹窗 -->
+  <view class="model" wx:if="{{shareIF}}">
+    <view class="mdoel-hide" catchtap="hidelShare"></view>
+    <view class="model-nr">
+      <image src="/img/pay-success-bg.png"></image>
+      <view class="model-nr-center">
+        <view class="model-nr-text">
+          分享至好友、微信群、可获得无限制消费优惠券，10元起，且可多次分享，多次获得
+        </view>
+        <view class="model-nr-btn">去分享</view>
+        <image src="/img/close.png" class="close-img"  catchtap="hidelShare"></image>
+      </view>
+    </view>
+  </view>
+</view>

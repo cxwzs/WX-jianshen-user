@@ -1,0 +1,39 @@
+/* pages/set/set.wxss */
+.box{
+  width: 100%;
+  margin-top: 20rpx;
+}
+.menu{
+  width: 100%;
+  height: 104rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2rpx solid #f6f6f6;
+  position: relative;
+}
+.menu>text{
+  font-size: 30rpx;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+}
+.menu>image{
+  width: 20rpx;
+  height: 30rpx;
+}
+.menu>button{
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}

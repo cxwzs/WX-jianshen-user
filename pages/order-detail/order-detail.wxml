@@ -1,0 +1,127 @@
+<!--pages/order-detail/order-detail.wxml-->
+<view class="container">
+  <view class="box">
+    <!-- 教练信息 -->
+    <view class="teacher" wx:if="{{details.status==2||details.status==4}}">
+      <view class="teacher-content">
+        <view class="teacher-bt">教练信息</view>
+        <view class="teacher-nr">
+          <image src="{{details.head_portrait}}"></image>
+          <view class="teacher-text">
+            <view class="teacher-text-nr">
+              <view class="teacher-name">
+                <text>{{details.coach_name}}</text>
+                <view>颜值担当</view>
+              </view>
+              <view class="teacher-phone">手机号：{{details.phone}}</view>
+            </view>
+            <view class="teacher-kf">
+              <image src="/img/wechat.png"></image>
+              <text>客服：jianshenjiaolian</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 项目信息 -->
+    <view class="project">
+      <view class="project-content">
+        <view class="project-bt">项目信息</view>
+        <view class="project-nr">
+          <image src="{{details.image}}"></image>
+          <view class="project-nr-text">
+            <view class="project-name">{{details.name}}</view>
+            <view class="project-time">{{details.class_hour_name}}</view>
+            <view class="project-price">￥{{details.price}}</view>
+          </view>
+        </view>
+        <!-- 进度条 -->
+        <view class="jdt">
+          <text>0</text>
+          <view class="jdt-nr">
+            <progress percent="{{details.used_class_hour}}" color="#FB3B39" border-radius="8" stroke-width="10" />
+            <view class="jdt-ts" style="left:{{details.used_class_hour-10}}%">
+              <image src="/img/jdt-ts.png"></image>
+              <text>{{details.surplus_class_hour}}</text>
+            </view>
+          </view>
+          <text>{{details.total_class_hour}}</text>
+        </view>
+      </view>
+    </view>
+    <!-- 订单信息 -->
+    <view class="order">
+      <view class="order-content">
+        <view class="order-bt">订单信息</view>
+        <view class="order-nr">
+          <text>订单编号</text>
+          <view>{{details.order_sn}}</view>
+        </view>
+        <view class="order-nr">
+          <text>订单状态</text>
+          <view class="order-red">{{details.status_name}}</view>
+        </view>
+        <view class="order-nr" wx:if="{{details.status==2||details.status==4}}">
+          <text>支付方式</text>
+          <view>微信支付</view>
+        </view>
+      </view>
+    </view>
+    <!-- 金额信息 -->
+    <view class="money">
+      <view class="money-content">
+        <view class="money-bt">金额信息</view>
+        <view class="money-num">
+          <text>课程总额</text>
+          <text>￥{{details.price}}</text>
+        </view>
+        <view class="money-nr" wx:if="{{details.status==2||details.status==4}}">
+          <view class="money-nr-price">
+            <text>实付款：</text>
+            <view>￥{{details.pay_amounts}}</view>
+          </view>
+          <view class="money-nr-time">
+            下单时间：{{details.create_time}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 底部按钮 -->
+  <view class="btn">
+    <!-- 待付款 按钮 -->
+    <view class="btn-nr" wx:if="{{details.status==1}}">
+      <view class="btn-border" catchtap="cancelOrder">取消订单</view>
+      <view class="btn-bg" catchtap="goPay" data-price="{{details.pay_amounts}}">去支付</view>
+    </view>
+    <!-- 进行中 按钮 -->
+    <view class="btn-nr" wx:if="{{details.status==2&&details.is_appointment==0}}">
+      <view class="btn-bg" catchtap="yueke">约课</view>
+    </view>
+    <!-- 已完成按钮 -->
+    <view class="btn-nr" wx:if="{{details.status==4}}">
+      <view class="btn-border" catchtap="delOrder">删除订单</view>
+      <view class="btn-bg" catchtap="toPingJia" wx:if="{{details.is_comment==0}}">评价</view>
+    </view>
+  </view>
+  <!-- 取消订单弹窗 -->
+  <view class="model" wx:if="{{cancelIF}}">
+    <view class="model-nr">
+      <view class="model-content">
+        <view class="model-content-bt">
+          <text>请选择取消订单的理由</text>
+          <image src="/img/close-1.png" catchtap="hideCancel"></image>
+        </view>
+        <!-- 取消订单理由列表 -->
+        <view class="model-list">
+          <view class="model-list-item" wx:for="{{cancel_order_reason_list}}" wx:key="{{index}}">
+            <text>{{item.text}}</text>
+            <image src="/img/check.png" wx:if="{{cancel_order_reason_id==item.id}}"></image>
+            <image src="/img/check-1.png"wx:else catchtap="xzQXorderLiYou" data-id="{{item.id}}" data-text="{{item.text}}"></image>
+          </view>
+        </view>
+      </view>
+      <view class="model-btn" catchtap="qxOrder">确定</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "painter": "/components/painter/painter"
+  },
+  "navigationBarTitleText": "确认订单"
+}

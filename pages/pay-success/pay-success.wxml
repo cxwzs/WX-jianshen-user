@@ -1,0 +1,27 @@
+<!--pages/pay-success/pay-success.wxml-->
+<view class="container">
+  <view class="box">
+    <image src="/img/pay-success.png"></image>
+    <text class="box-ts">支付成功</text>
+    <view class="box-money">￥{{price}}</view>
+    <view class="box-btn-now" catchtap="now">立即约课</view>
+    <view class="box-btn-next" catchtap="next">下次再约</view>
+  </view>
+  <!-- 分享弹窗 -->
+  <view class="model" wx:if="{{shareIF}}">
+    <view class="mdoel-hide" catchtap="hideShare"></view>
+    <view class="model-nr">
+      <image src="/img/pay-success-bg.png"></image>
+      <view class="model-nr-center">
+        <view class="model-nr-text">
+          分享至好友、微信群、可获得无限制消费优惠券，10元起，且可多次分享，多次获得
+        </view>
+        <view class="model-nr-btn">
+          <text>去分享</text>
+          <button open-type="share" plain></button>
+        </view>
+        <image src="/img/close.png" class="close-img"  catchtap="hideShare"></image>
+      </view>
+    </view>
+  </view>
+</view>

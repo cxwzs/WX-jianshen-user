@@ -1,0 +1,56 @@
+<!--pages/jingxuanxiangmu/jingxuanxiangmu.wxml-->
+<view class="container">
+  <view class="box">
+    <!-- 排序方式 -->
+    <view class="nav">
+      <view class="nav-nr {{paixu==1?'nav-nr-active':''}}" bindtap="xzPaiXu" data-paixu="{{1}}">
+        <text>综合排序</text>
+      </view>
+      <view class="nav-nr {{paixu==2?'nav-nr-active':''}}" bindtap="xzPaiXu" data-paixu="{{2}}">
+        <text>价格</text>
+        <image src="/img/paixu-sheng.png" wx:if="{{paixu==2&&price=='asc'}}"></image>
+        <image src="/img/paixu-jiang.png" wx:elif="{{paixu==2&&price=='desc'}}"></image>
+        <image src="/img/paixu-moren.png" wx:else></image>
+      </view>
+      <view class="nav-nr {{paixu==3?'nav-nr-active':''}}" bindtap="xzPaiXu" data-paixu="{{3}}">
+        <text>评价</text>
+        <image src="/img/paixu-sheng.png" wx:if="{{paixu==3&&evaluate=='asc'}}"></image>
+        <image src="/img/paixu-jiang.png" wx:elif="{{paixu==3&&evaluate=='desc'}}"></image>
+        <image src="/img/paixu-moren.png" wx:else></image>
+      </view>
+    </view>
+    <!-- 列表 -->
+    <view class="list">
+      <view class="list-item" wx:for="{{list}}" wx:key="{{index}}" catchtap="toProjectDetail" data-id="{{item.id}}">
+        <view class="list-item-center">
+          <!-- 项目 -->
+          <view class="project">
+            <image src="{{item.image}}"></image>
+            <view class="project-nr">
+              <view class="project-nr-bt">{{item.name}}</view>
+              <view class="project-star">
+                <image src="{{item.evaluate>0?(item.evaluate==0.5?'/img/star-4.png':'/img/star-3.png'):'/img/star-5.png'}}"></image>
+                <image src="{{item.evaluate>1?(item.evaluate==1.5?'/img/star-4.png':'/img/star-3.png'):'/img/star-5.png'}}"></image>
+                <image src="{{item.evaluate>2?(item.evaluate==2.5?'/img/star-4.png':'/img/star-3.png'):'/img/star-5.png'}}"></image>
+                <image src="{{item.evaluate>3?(item.evaluate==3.5?'/img/star-4.png':'/img/star-3.png'):'/img/star-5.png'}}"></image>
+                <image src="{{item.evaluate>4?(item.evaluate==4.5?'/img/star-4.png':'/img/star-3.png'):'/img/star-5.png'}}"></image>
+              </view>
+              <view class="project-price">￥{{item.price}}</view>
+            </view>
+          </view>
+          <!-- 隔断 -->
+          <view class="geduan"></view>
+          <!-- 教练 -->
+          <view class="teacher">
+            <image src="{{item.head_portrait}}"></image>
+            <view class="teacher-nr">
+              <view class="teacher-name">{{item.coach_name}}</view>
+              <view class="teacher-detail">{{item.city}} 从业{{item.year_num}}年</view>
+              <view class="teacher-bq">{{item.class_name}}类</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

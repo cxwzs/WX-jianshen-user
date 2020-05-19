@@ -1,0 +1,71 @@
+<!--pages/fabiaopingjia/fabiaopingjia.wxml-->
+<view class="container">
+  <view class="box">
+    <!-- 项目信息 -->
+    <view class="order-content">
+      <view class="order-nr">
+        <image src="{{details.image}}"></image>
+        <view class="order-text">
+          <view class="order-name">{{details.name}}</view>
+          <view class="order-time">{{details.class_hour_name}}</view>
+          <view class="order-price">￥{{details.price}}</view>
+        </view>
+      </view>
+    </view>
+    <!-- 总体评价 -->
+    <view class="all">
+      <view class="all-content">
+        <text>总体评价</text>
+        <view class="all-star">
+          <view class="star">
+            <image src="{{satisfaction>0?(satisfaction==0.5?'/img/star-4.png':'/img/star-3.png'):'/img/star-5.png'}}"></image>
+            <view class="star-left" catchtap="pingxing" data-satisfaction="{{0.5}}"></view>
+            <view class="star-right" catchtap="pingxing" data-satisfaction="{{1}}"></view>
+          </view>
+          <view class="star">
+            <image src="{{satisfaction>1?(satisfaction==1.5?'/img/star-4.png':'/img/star-3.png'):'/img/star-5.png'}}"></image>
+            <view class="star-left" catchtap="pingxing" data-satisfaction="{{1.5}}"></view>
+            <view class="star-right" catchtap="pingxing" data-satisfaction="{{2}}"></view>
+          </view>
+          <view class="star">
+            <image src="{{satisfaction>2?(satisfaction==2.5?'/img/star-4.png':'/img/star-3.png'):'/img/star-5.png'}}"></image>
+            <view class="star-left" catchtap="pingxing" data-satisfaction="{{2.5}}"></view>
+            <view class="star-right" catchtap="pingxing" data-satisfaction="{{3}}"></view>
+          </view>
+          <view class="star">
+            <image src="{{satisfaction>3?(satisfaction==3.5?'/img/star-4.png':'/img/star-3.png'):'/img/star-5.png'}}"></image>
+            <view class="star-left" catchtap="pingxing" data-satisfaction="{{3.5}}"></view>
+            <view class="star-right" catchtap="pingxing" data-satisfaction="{{4}}"></view>
+          </view>
+          <view class="star">
+            <image src="{{satisfaction>4?(satisfaction==4.5?'/img/star-4.png':'/img/star-3.png'):'/img/star-5.png'}}"></image>
+            <view class="star-left" catchtap="pingxing" data-satisfaction="{{4.5}}"></view>
+            <view class="star-right" catchtap="pingxing" data-satisfaction="{{5}}"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 评价内容 -->
+    <view class="pingjia">
+      <!-- 评价输入框 -->
+      <view class="pingjia-inp">
+        <textarea placeholder="请写下您的评价" placeholder-class="inps" maxlength="-1" auto-height="true" bindinput="getContent"></textarea>
+      </view>
+      <!-- 评价上传图 -->
+      <view class="sc-img">
+        <view class="sc-img-item">
+          <view class="sc-img-nr">
+            <image src="/img/sc.png" class="imgs" catchtap="scImgOne"></image>
+          </view>
+          <view class="sc-img-nr" wx:for="{{review_url}}" wx:key="{{index}}">
+            <image src="{{item}}" class="imgs"></image>
+            <image src="/img/del.png" class="del-img"  catchtap="delIMG" data-index="{{index}}"></image>
+          </view>
+        </view>
+        <text>您可上传4张图片哦！</text>
+      </view>
+    </view>
+  </view>
+  <!-- 按钮 -->
+  <view class="btn" catchtap="baocun">保存</view>
+</view>

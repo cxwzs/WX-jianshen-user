@@ -1,0 +1,49 @@
+<!--pages/mine/mine.wxml-->
+<view class="container">
+  <view class="box">
+    <!-- top -->
+    <view class="top">
+      <image src="/img/mine-bg.png" class="top-bg"></image>
+      <!-- 内容 -->
+      <view class="top-content">
+        <!-- 未登录 -->
+        <view class="top-nr" wx:if="{{m_id==''}}" catchtap="login">
+          <image src="/img/mine-tx.png"></image>
+          <text>注册/登录</text>
+        </view>
+        <!-- 已登录 -->
+        <view class="top-nr" wx:else catchtap="toUser">
+          <image src="{{userinfo.avatarurl}}"></image>
+          <text>{{userinfo.nickname}}</text>
+        </view>
+      </view>
+    </view>
+    <!-- 菜单 -->
+    <view class="list">
+      <!-- 我的收藏 -->
+      <view class="list-item" catchtap="toCollection">
+        <view class="list-nr">
+          <image src="/img/mine-collection.png"></image>
+          <text>我的收藏</text>
+        </view>
+        <image src="/img/more.png"></image>
+      </view>
+      <!-- 站内消息 -->
+      <view class="list-item" catchtap="toMessage">
+        <view class="list-nr">
+          <image src="/img/mine-message.png"></image>
+          <text>站内消息</text>
+        </view>
+        <image src="/img/more.png"></image>
+      </view>
+      <!-- 设置 -->
+      <view class="list-item" catchtap="toSet">
+        <view class="list-nr">
+          <image src="/img/mine-set.png"></image>
+          <text>设置</text>
+        </view>
+        <image src="/img/more.png"></image>
+      </view>
+    </view>
+  </view>
+</view>

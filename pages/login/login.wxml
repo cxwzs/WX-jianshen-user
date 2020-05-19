@@ -1,0 +1,12 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+  <view class="box">
+    <image src="/img/logo.png"></image>
+    <text>小程序</text>
+    <view class="btn">
+      <image src="/img/login.png"></image>
+      <text>微信用户快捷登录</text>
+      <button open-type='getUserInfo' bindgetuserinfo='bindGetUserInfo' plain></button>
+    </view>
+  </view>
+</view>

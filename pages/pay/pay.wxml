@@ -1,0 +1,24 @@
+<!--pages/pay/pay.wxml-->
+<view class="container">
+  <view class="box">
+    <!-- 支付方式 -->
+    <view class="pay">
+      <view class="pay-wx">
+        <image src="/img/pay-wechat.png"></image>
+        <text>微信支付</text>
+      </view>
+      <image src="/img/check.png"></image>
+    </view>
+  </view>
+  <!-- 底部按钮 -->
+  <view class="btn">
+    <view class="btn-left">
+      <text>合计：</text>
+      <view class="btn-left-nr">
+        <view>￥{{price}}</view>
+        <text wx:if="{{share_discount_price!=0}}">分享优惠￥{{share_discount_price}}</text>
+      </view>
+    </view>
+    <view class="btn-right" catchtap="pay">付款</view>
+  </view>
+</view>

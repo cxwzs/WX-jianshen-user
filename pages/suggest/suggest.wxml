@@ -1,0 +1,6 @@
+<!--pages/suggest/suggest.wxml-->
+<view class="yijian">
+  <textarea class="textarea" placeholder=" 请输入您的反馈意见，感谢您帮助我们改进产品和服务！" bindinput="textareaInput"></textarea>
+  <input type="text" placeholder="请留下你的邮箱、QQ号或手机号" class="text" bindinput="textInput"></input>
+  <view class="btn" bindtap="queding">确定</view>
+</view>

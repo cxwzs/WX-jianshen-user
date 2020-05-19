@@ -1,0 +1,63 @@
+{
+  "pages":[
+    
+    "pages/index/index",
+    "pages/order/order",
+    "pages/mine/mine",
+    "pages/project-more-evaluate/project-more-evaluate",
+    "pages/web-view/web-view",
+    "pages/calendar/calendar",
+    "pages/about-us/about-us",
+    "pages/jingxuanxiangmu/jingxuanxiangmu",
+    "pages/project-detail/project-detail",
+    "pages/queren-order/queren-order", 
+    "pages/pay/pay",
+    "pages/pay-success/pay-success",
+    "pages/order-detail/order-detail",
+    "pages/fabiaopingjia/fabiaopingjia",
+    "pages/pingjia-success/pingjia-success",
+    "pages/login/login",
+    "pages/user/user",
+    "pages/set/set",
+    "pages/bind-phone/bind-phone",
+    "pages/mine-collection/mine-collection",
+    "pages/mine-message/mine-message",
+    "pages/messgage-detail/messgage-detail",
+    "pages/help/help",
+    "pages/help-detail/help-detail",
+    "pages/suggest/suggest",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar":{
+    "borderStyle": "black",
+    "selectedColor": "#EC2525",
+    "list":[
+      {
+        "text": "首页",
+        "pagePath": "pages/index/index",
+        "iconPath": "img/index.png",
+        "selectedIconPath": "img/index-1.png"
+      },
+      {
+        "text": "订单",
+        "pagePath": "pages/order/order",
+        "iconPath": "img/order.png",
+        "selectedIconPath": "img/order-1.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/mine/mine",
+        "iconPath": "img/mine.png",
+        "selectedIconPath": "img/mine-1.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
